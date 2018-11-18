@@ -5,8 +5,12 @@
   "repository": "https://github.com/connor-baer/panda.git",
   "author": "Connor Bär <connor.baer@sumup.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "micro routes/bot.js"
+  },
   "dependencies": {
     "lodash": "^4.17.11",
+    "micro": "^9.3.3",
     "telegraf": "^3.25.0",
     "telegraf-update-logger": "^1.1.3"
   },

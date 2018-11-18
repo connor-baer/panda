@@ -1,21 +1,9 @@
 {
-  "version": 2,
+  "version": 1,
   "name": "panda",
   "alias": "panda.connor.li",
-  "builds": [{ "src": "routes/*.js", "use": "@now/node@canary" }],
-  "routes": [
-    {
-      "src": "/bot/.*",
-      "dest": "/routes/bot.js"
-    },
-    {
-      "src": "/.*",
-      "status": 404
-    }
-  ],
   "env": {
     "BOT_TOKEN": "@telegram-bot-panda-token",
     "WEBHOOK_SECRET": "@telegram-bot-panda-secret"
-  },
-  "regions": ["all"]
+  }
 }
