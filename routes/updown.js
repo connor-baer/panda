@@ -22,9 +22,11 @@ function constructMessage({ event, check = {}, downtime = {} }) {
 }
 
 module.exports = asyncRoute(async (req, res) => {
-  const body = await json(req);
+  const events = await json(req);
   const { chatId } = req.params;
-  const message = constructMessage(body);
-  await bot.telegram.sendMessage(chatId, message, { parse_mode: 'Markdown' });
-  res.end('Message sent.');
+  events.forEach(event => {
+    const message = constructMessage(event);
+    bot.telegram.sendMessage(chatId, message, { parse_mode: 'Markdown' });
+  });
+  res.end('Message(s) sent.');
 });
