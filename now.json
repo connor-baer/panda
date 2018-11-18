@@ -2,7 +2,7 @@
   "version": 2,
   "name": "panda",
   "alias": "panda.connor.li",
-  "builds": [{ "src": "routes/*.js", "use": "@now/node" }],
+  "builds": [{ "src": "routes/*.js", "use": "@now/node@canary" }],
   "routes": [
     {
       "src": "/bot/.*",
