@@ -6,6 +6,14 @@ bot.telegram.getMe().then(botInfo => {
   bot.options.username = botInfo.username;
 });
 
-bot.hears(/hello/, ctx => ctx.reply('Hello world'));
+bot.use((ctx, next) => {
+  const start = new Date();
+  return next(ctx).then(() => {
+    const ms = new Date() - start;
+    console.log('Response time %sms', ms);
+  });
+});
+
+bot.hears(/hello/i, ctx => ctx.reply('Hello world'));
 
 module.exports = bot;
