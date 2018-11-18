@@ -1,0 +1,15 @@
+{
+  "name": "panda",
+  "version": "1.0.0",
+  "description": "Personal bot assistant for Telegram",
+  "repository": "https://github.com/connor-baer/panda.git",
+  "author": "Connor Bär <connor.baer@sumup.com>",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.11",
+    "telegraf": "^3.25.0"
+  },
+  "devDependencies": {
+    "@sumup/foundry": "^0.0.16"
+  }
+}
