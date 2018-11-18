@@ -6,6 +6,6 @@ bot.telegram.getMe().then(botInfo => {
   bot.options.username = botInfo.username;
 });
 
-bot.hears(/hello/, ctx => ctx.reply('Hello Connor'));
+bot.hears(/hello/, ctx => ctx.reply('Hello world'));
 
 module.exports = bot;
