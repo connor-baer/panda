@@ -4,6 +4,6 @@
   "alias": "panda.connor.li",
   "env": {
     "BOT_TOKEN": "@telegram-bot-panda-token",
-    "WEBHOOK_SECRET": "@telegram-bot-panda-secret"
+    "BOT_SECRET": "@telegram-bot-panda-secret"
   }
 }
