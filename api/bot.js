@@ -1,5 +1,3 @@
-const { json } = require('micro');
-
 const bot = require('../bot');
 
 bot.telegram.setWebhook(
@@ -7,6 +5,5 @@ bot.telegram.setWebhook(
 );
 
 module.exports = async (req, res) => {
-  const body = await json(req);
-  bot.handleUpdate(body, res);
+  bot.handleUpdate(req.body, res);
 };

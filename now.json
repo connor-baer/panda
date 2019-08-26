@@ -1,9 +1,40 @@
 {
-  "version": 1,
+  "version": 2,
   "name": "panda",
   "alias": "panda.connor.li",
+  "regions": ["bru", "gru"],
   "env": {
-    "BOT_TOKEN": "@telegram-bot-panda-token",
-    "BOT_SECRET": "@telegram-bot-panda-secret"
-  }
+    "BOT_TOKEN": "@telegram-bot-panda-token"
+  },
+  "routes": [
+    {
+      "src": "/bot/(.+)",
+      "dest": "/api/bot.js",
+      "methods": ["POST", "GET"],
+      "headers": {
+        "X-Download-Options": "noopen",
+        "X-Frame-Options": "SAMEORIGIN",
+        "Referrer-Policy": "no-referrer-when-downgrade",
+        "X-Xss-Protection": "1",
+        "X-Content-Type-Options": "nosniff",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+        "Feature-Policy": "geolocation 'self'; microphone 'none'; camera 'none'"
+      }
+    },
+    {
+      "src": "/api/v1/(.+)",
+      "dest": "/api/$1.js",
+      "methods": ["POST", "GET"],
+      "headers": {
+        "X-Download-Options": "noopen",
+        "X-Frame-Options": "SAMEORIGIN",
+        "Referrer-Policy": "no-referrer-when-downgrade",
+        "X-Xss-Protection": "1",
+        "X-Content-Type-Options": "nosniff",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+        "Feature-Policy": "geolocation 'self'; microphone 'none'; camera 'none'"
+      }
+    }
+  ],
+  "builds": [{ "src": "api/**.js", "use": "@now/node" }]
 }

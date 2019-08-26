@@ -1,5 +1,3 @@
-const { json } = require('micro');
-
 const bot = require('../bot');
 const { asyncRoute } = require('../lib/async-helpers');
 const { CHECK_UP, CHECK_DOWN } = require('../lib/constants');
@@ -35,11 +33,9 @@ module.exports = asyncRoute(async (req, res) => {
     throw new TypeError('Expected a chatId');
   }
 
-  const events = await json(req);
-
-  events.forEach(event => {
+  req.body.forEach(event => {
     const message = constructMessage(event);
     bot.telegram.sendMessage(chatId, message, { parse_mode: 'Markdown' });
   });
-  res.end('Message(s) sent.');
+  res.send('Message(s) sent.');
 });
